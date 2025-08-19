@@ -1,5 +1,12 @@
 # 🧠 Reflection Agent: Intelligent Reflection Mechanism in Dynamic Environments
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/network)
+[![GitHub issues](https://img.shields.io/github/issues/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/pulls)
+
 ## 📖 Project Introduction
 
 This project implements a reflective agent (Reflection Agent) that can autonomously learn, adapt, and optimize strategies in dynamically changing maze environments. By introducing reflection mechanisms, the agent significantly improves performance in complex environments.
@@ -119,11 +126,53 @@ This project explores cutting-edge concepts in AI:
 
 ## 🤝 Contributing
 
-Welcome to submit Issues and Pull Requests! Please ensure:
+We welcome contributions from the community! Here are several ways you can contribute:
+
+### 🐛 Report Bugs
+- Open an issue with a detailed description of the bug
+- Include steps to reproduce and expected behavior
+- Add labels like `bug`, `help wanted`, or `good first issue`
+
+### 💡 Suggest Features
+- Propose new ideas in issues
+- Discuss implementation approaches
+- Help prioritize feature development
+
+### 🔧 Submit Code
+- Fork the repository
+- Create a feature branch (`git checkout -b feature/amazing-feature`)
+- Commit your changes (`git commit -m 'Add amazing feature'`)
+- Push to the branch (`git push origin feature/amazing-feature`)
+- Open a Pull Request
+
+### 📚 Improve Documentation
+- Fix typos and improve clarity
+- Add examples and tutorials
+- Translate to other languages
+
+### 🧪 Help with Testing
+- Test on different platforms
+- Report performance issues
+- Suggest test cases
+
+**Please ensure:**
 1. Code follows PEP 8 standards
 2. Add appropriate comments and documentation
-3. Test new features
+3. Test new features thoroughly
 4. Update related documentation
+
+## 📚 Citation
+
+If you use this project in your research, please cite:
+
+```bibtex
+@misc{zhou2024reflection,
+  title={Reflection Agent: Intelligent Reflection Mechanism in Dynamic Environments},
+  author={Zhou Chenyu},
+  year={2024},
+  url={https://github.com/cathydou/reflection-agent-maze}
+}
+```
 
 ## 📄 License
 
