@@ -6,6 +6,8 @@
 [![GitHub forks](https://img.shields.io/github/forks/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/network)
 [![GitHub issues](https://img.shields.io/github/issues/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/cathydou/reflection-agent-maze.svg)](https://github.com/cathydou/reflection-agent-maze/pulls)
+[![Research](https://img.shields.io/badge/Research-Paper-blue.svg)](papers/README.md)
+[![Demo](https://img.shields.io/badge/Demo-Videos-red.svg)](demos/README.md)
 
 ## 📖 Project Introduction
 
@@ -116,8 +118,18 @@ The project includes a complete visualization interface showing:
 - Real-time performance metrics
 - Environment change detection
 
-## 📚 Related Research
+## 📚 Research Papers & Demos
 
+### 📄 Academic Papers
+- **[Reflection Agent: Dynamic Environment Adaptation through Meta-Learning](papers/README.md)** - Complete research paper with theoretical foundations
+- **[Implementation Details and Experimental Results](papers/README.md)** - Comprehensive analysis and results
+
+### 🎥 Demo Videos
+- **[Agent Comparison Demo](demos/README.md)** - Side-by-side performance comparison
+- **[Technical Deep Dive](demos/README.md)** - Detailed mechanism explanation
+- **[Live Experiment Run](demos/README.md)** - Complete 100-episode experiment
+
+### 🔬 Related Research Areas
 This project explores cutting-edge concepts in AI:
 - **Meta-Learning**
 - **Reflective Learning**
