@@ -295,29 +295,29 @@ def main():
                                     reflection_next_state, r_done, steps,
                                     env.get_optimal_path_length())
                 
-                # 更新状态
+                # Update states
                 baseline_state = baseline_next_state
                 reflection_state = reflection_next_state
                 steps += 1
                 done = b_done or r_done
                 
-                # 更新可视化
+                # Update visualization
                 viz.current_maze = env.maze
                 viz.baseline_pos = baseline_state
                 viz.reflection_pos = reflection_state
                 viz.goal_pos = env.goal_pos
                 
-                # 绘制和更新显示
+                # Draw and update display
                 viz.draw()
                 
-                # 控制更新速率
-                pygame.time.wait(100)  # 100ms 延迟，使可视化更容易观察
+                # Control update rate
+                pygame.time.wait(100)  # 100ms delay for better visualization
             
-            # 统计结果
+            # Calculate results
             baseline_success = b_done and np.array_equal(baseline_state, env.goal_pos)
             reflection_success = r_done and np.array_equal(reflection_state, env.goal_pos)
             
-            # 更新统计数据
+            # Update statistics
             baseline_stats['total_steps'] += steps
             baseline_stats['total_rewards'] += baseline_reward
             if baseline_success:
@@ -331,7 +331,7 @@ def main():
             episode += 1
             print(f"Episode {episode} completed - Baseline success: {baseline_success}, Reflection success: {reflection_success}")
             
-            # 每10个episode打印一次统计
+            # Print statistics every 10 episodes
             if episode % 10 == 0:
                 baseline_success_rate = baseline_stats['successes'] / episode
                 reflection_success_rate = reflection_stats['successes'] / episode
@@ -340,21 +340,21 @@ def main():
                 baseline_avg_reward = baseline_stats['total_rewards'] / episode
                 reflection_avg_reward = reflection_stats['total_rewards'] / episode
                 
-                print(f"\n=== Episode {episode} 统计结果 ===")
-                print(f"基线智能体 (Baseline):")
-                print(f"  成功率: {baseline_success_rate:.3f}")
-                print(f"  平均步数: {baseline_avg_steps:.1f}")
-                print(f"  平均奖励: {baseline_avg_reward:.2f}")
-                print(f"反思智能体 (Reflection):")
-                print(f"  成功率: {reflection_success_rate:.3f}")
-                print(f"  平均步数: {reflection_avg_steps:.1f}")
-                print(f"  平均奖励: {reflection_avg_reward:.2f}")
+                print(f"\n=== Episode {episode} Statistics ===")
+                print(f"Baseline Agent (Baseline):")
+                print(f"  Success Rate: {baseline_success_rate:.3f}")
+                print(f"  Average Steps: {baseline_avg_steps:.1f}")
+                print(f"  Average Reward: {baseline_avg_reward:.2f}")
+                print(f"Reflection Agent (Reflection):")
+                print(f"  Success Rate: {reflection_success_rate:.3f}")
+                print(f"  Average Steps: {reflection_avg_steps:.1f}")
+                print(f"  Average Reward: {reflection_avg_reward:.2f}")
                 print("=" * 30)
             
     except KeyboardInterrupt:
         print("\nExperiment interrupted by user")
     finally:
-        # 打印最终统计结果
+        # Print final statistics
         if episode > 0:
             baseline_success_rate = baseline_stats['successes'] / episode
             reflection_success_rate = reflection_stats['successes'] / episode
@@ -364,25 +364,25 @@ def main():
             reflection_avg_reward = reflection_stats['total_rewards'] / episode
             
             print(f"\n{'='*50}")
-            print(f"最终实验结果 (总共 {episode} 个episodes)")
+            print(f"Final Experimental Results (Total {episode} episodes)")
             print(f"{'='*50}")
-            print(f"基线智能体 (Baseline Agent):")
-            print(f"  总成功次数: {baseline_stats['successes']}")
-            print(f"  成功率: {baseline_success_rate:.3f} ({baseline_success_rate*100:.1f}%)")
-            print(f"  平均步数: {baseline_avg_steps:.1f}")
-            print(f"  平均奖励: {baseline_avg_reward:.2f}")
-            print(f"\n反思智能体 (Reflection Agent):")
-            print(f"  总成功次数: {reflection_stats['successes']}")
-            print(f"  成功率: {reflection_success_rate:.3f} ({reflection_success_rate*100:.1f}%)")
-            print(f"  平均步数: {reflection_avg_steps:.1f}")
-            print(f"  平均奖励: {reflection_avg_reward:.2f}")
-            print(f"\n性能对比:")
+            print(f"Baseline Agent:")
+            print(f"  Total Successes: {baseline_stats['successes']}")
+            print(f"  Success Rate: {baseline_success_rate:.3f} ({baseline_success_rate*100:.1f}%)")
+            print(f"  Average Steps: {baseline_avg_steps:.1f}")
+            print(f"  Average Reward: {baseline_avg_reward:.2f}")
+            print(f"\nReflection Agent:")
+            print(f"  Total Successes: {reflection_stats['successes']}")
+            print(f"  Success Rate: {reflection_success_rate:.3f} ({reflection_success_rate*100:.1f}%)")
+            print(f"  Average Steps: {reflection_avg_steps:.1f}")
+            print(f"  Average Reward: {reflection_avg_reward:.2f}")
+            print(f"\nPerformance Comparison:")
             success_improvement = (reflection_success_rate - baseline_success_rate) * 100
             step_improvement = ((baseline_avg_steps - reflection_avg_steps) / baseline_avg_steps) * 100
             reward_improvement = ((reflection_avg_reward - baseline_avg_reward) / abs(baseline_avg_reward)) * 100
-            print(f"  成功率提升: {success_improvement:+.1f}%")
-            print(f"  步数效率提升: {step_improvement:+.1f}%")
-            print(f"  奖励提升: {reward_improvement:+.1f}%")
+            print(f"  Success Rate Improvement: {success_improvement:+.1f}%")
+            print(f"  Step Efficiency Improvement: {step_improvement:+.1f}%")
+            print(f"  Reward Improvement: {reward_improvement:+.1f}%")
             print(f"{'='*50}")
         
         viz.running = False

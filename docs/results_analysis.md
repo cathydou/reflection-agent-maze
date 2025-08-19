@@ -1,186 +1,186 @@
-# 实验结果分析
+# Experimental Results Analysis
 
-## 1. 实验概述
+## 1. Experiment Overview
 
-### 1.1 实验设置
-- **环境**: 10×10动态迷宫
-- **智能体**: 基线智能体 vs 反思智能体
-- **实验轮数**: 100个episodes
-- **环境变化**: 每18步随机变化迷宫结构
+### 1.1 Experiment Setup
+- **Environment**: 10×10 dynamic maze
+- **Agents**: Baseline Agent vs Reflection Agent
+- **Experiment Rounds**: 100 episodes
+- **Environment Changes**: Random maze structure changes every 18 steps
 
-### 1.2 评估指标
-- 成功率 (Success Rate)
-- 平均步数 (Average Steps)
-- 平均奖励 (Average Reward)
-- 环境适应能力 (Environment Adaptation)
+### 1.2 Evaluation Metrics
+- Success Rate
+- Average Steps
+- Average Reward
+- Environment Adaptation Capability
 
-## 2. 主要结果
+## 2. Main Results
 
-### 2.1 成功率对比
+### 2.1 Success Rate Comparison
 ```
-基线智能体: 2.0% (2/100)
-反思智能体: 40.0% (40/100)
-提升幅度: +38.0% (20倍提升)
-```
-
-**分析**: 反思智能体的成功率显著高于基线智能体，说明反思机制能够有效提升智能体的决策质量。
-
-### 2.2 平均奖励对比
-```
-基线智能体: -97.17
-反思智能体: +30.52
-提升幅度: +131.4%
+Baseline Agent: 2.0% (2/100)
+Reflection Agent: 40.0% (40/100)
+Improvement: +38.0% (20x improvement)
 ```
 
-**分析**: 基线智能体获得负奖励，说明其策略无效；反思智能体获得正奖励，表明其能够找到有效的解决方案。
+**Analysis**: The reflection agent's success rate is significantly higher than the baseline agent, indicating that the reflection mechanism effectively improves the agent's decision-making quality.
 
-### 2.3 平均步数对比
+### 2.2 Average Reward Comparison
 ```
-基线智能体: 79.3步
-反思智能体: 79.3步
-提升幅度: 0.0%
-```
-
-**分析**: 步数相同但成功率差异巨大，说明反思智能体在相同步数内能够更有效地完成任务。
-
-## 3. 详细分析
-
-### 3.1 学习曲线分析
-
-#### Episode 10 (早期阶段)
-```
-基线智能体: 10.0% 成功率
-反思智能体: 50.0% 成功率
-差距: 40.0%
+Baseline Agent: -97.17
+Reflection Agent: +30.52
+Improvement: +131.4%
 ```
 
-#### Episode 50 (中期阶段)
-```
-基线智能体: 4.0% 成功率
-反思智能体: 40.0% 成功率
-差距: 36.0%
-```
+**Analysis**: The baseline agent receives negative rewards, indicating ineffective strategies; the reflection agent receives positive rewards, showing it can find effective solutions.
 
-#### Episode 100 (最终阶段)
+### 2.3 Average Steps Comparison
 ```
-基线智能体: 2.0% 成功率
-反思智能体: 40.0% 成功率
-差距: 38.0%
+Baseline Agent: 79.3 steps
+Reflection Agent: 79.3 steps
+Improvement: 0.0%
 ```
 
-**观察**: 反思智能体在早期就表现出优势，并保持稳定的性能提升。
+**Analysis**: Same number of steps but vastly different success rates, indicating the reflection agent can complete tasks more effectively within the same number of steps.
 
-### 3.2 环境变化适应分析
+## 3. Detailed Analysis
 
-#### 环境变化检测频率
-- 平均每3-4步检测到一次环境变化
-- 反思智能体能够快速识别并适应变化
+### 3.1 Learning Curve Analysis
 
-#### 策略调整效果
+#### Episode 10 (Early Stage)
 ```
-环境变化前: 成功率约35-40%
-环境变化后: 成功率约40-45%
-适应效果: 正向提升
+Baseline Agent: 10.0% success rate
+Reflection Agent: 50.0% success rate
+Gap: 40.0%
 ```
 
-### 3.3 记忆系统分析
+#### Episode 50 (Mid Stage)
+```
+Baseline Agent: 4.0% success rate
+Reflection Agent: 40.0% success rate
+Gap: 36.0%
+```
 
-#### 短期记忆利用率
-- 环境变化时: 70%权重
-- 环境稳定时: 30%权重
+#### Episode 100 (Final Stage)
+```
+Baseline Agent: 2.0% success rate
+Reflection Agent: 40.0% success rate
+Gap: 38.0%
+```
 
-#### 长期记忆稳定性
-- 保存通用策略
-- 避免重复学习
-- 提升泛化能力
+**Observation**: The reflection agent shows advantages early on and maintains stable performance improvements.
 
-## 4. 关键发现
+### 3.2 Environment Change Adaptation Analysis
 
-### 4.1 反思机制的有效性
-1. **实时性能评估**: 每5步的反思能够及时发现问题
-2. **动态策略调整**: 根据表现自动调整学习参数
-3. **环境变化检测**: 快速识别并适应环境变化
+#### Environment Change Detection Frequency
+- Detects environment changes every 3-4 steps on average
+- Reflection agent can quickly identify and adapt to changes
 
-### 4.2 双记忆系统的优势
-1. **短期记忆**: 快速适应新环境
-2. **长期记忆**: 保存稳定策略
-3. **智能平衡**: 根据环境稳定性动态调整
+#### Strategy Adjustment Effectiveness
+```
+Before Environment Change: Success rate ~35-40%
+After Environment Change: Success rate ~40-45%
+Adaptation Effect: Positive improvement
+```
 
-### 4.3 环境适应能力
-1. **变化检测**: 能够识别迷宫结构变化
-2. **策略调整**: 检测到变化后立即调整策略
-3. **快速恢复**: 在变化后快速恢复到良好性能
+### 3.3 Memory System Analysis
 
-## 5. 性能提升机制
+#### Short-term Memory Utilization
+- During environment changes: 70% weight
+- During stable environment: 30% weight
 
-### 5.1 为什么反思智能体表现更好？
+#### Long-term Memory Stability
+- Preserves general strategies
+- Avoids repeated learning
+- Improves generalization ability
 
-#### 1. 智能探索
-- 基线智能体: 随机探索，效率低
-- 反思智能体: 方向优先 + 墙壁记忆，效率高
+## 4. Key Findings
 
-#### 2. 环境适应
-- 基线智能体: 固定策略，无法适应变化
-- 反思智能体: 动态调整，快速适应变化
+### 4.1 Effectiveness of Reflection Mechanism
+1. **Real-time Performance Evaluation**: Every 5-step reflection can identify problems timely
+2. **Dynamic Strategy Adjustment**: Automatically adjust learning parameters based on performance
+3. **Environment Change Detection**: Quickly identify and adapt to environment changes
 
-#### 3. 经验利用
-- 基线智能体: 简单经验回放
-- 反思智能体: 优先级经验回放 + 知识转移
+### 4.2 Advantages of Dual Memory System
+1. **Short-term Memory**: Quickly adapt to new environments
+2. **Long-term Memory**: Preserve stable strategies
+3. **Intelligent Balance**: Dynamically adjust based on environment stability
 
-### 5.2 反思机制的具体作用
+### 4.3 Environment Adaptation Capability
+1. **Change Detection**: Can identify maze structure changes
+2. **Strategy Adjustment**: Immediately adjust strategies after detecting changes
+3. **Quick Recovery**: Quickly recover to good performance after changes
 
-#### 置信度评估
+## 5. Performance Improvement Mechanisms
+
+### 5.1 Why Does the Reflection Agent Perform Better?
+
+#### 1. Intelligent Exploration
+- Baseline Agent: Random exploration, low efficiency
+- Reflection Agent: Direction priority + wall memory, high efficiency
+
+#### 2. Environment Adaptation
+- Baseline Agent: Fixed strategy, cannot adapt to changes
+- Reflection Agent: Dynamic adjustment, quick adaptation to changes
+
+#### 3. Experience Utilization
+- Baseline Agent: Simple experience replay
+- Reflection Agent: Priority experience replay + knowledge transfer
+
+### 5.2 Specific Role of Reflection Mechanism
+
+#### Confidence Assessment
 ```python
 confidence = 1.0 - (steps - shortest_path) / shortest_path
 ```
-- 评估当前策略的有效性
-- 指导策略调整决策
+- Evaluate effectiveness of current strategy
+- Guide strategy adjustment decisions
 
-#### 策略适应
+#### Strategy Adaptation
 ```python
 if performance_score < adaptation_threshold:
     self.adapt_strategy()
 ```
-- 根据表现自动调整参数
-- 避免策略陷入局部最优
+- Automatically adjust parameters based on performance
+- Avoid strategies getting stuck in local optima
 
-## 6. 局限性分析
+## 6. Limitation Analysis
 
-### 6.1 当前限制
-1. **离散状态空间**: 仅适用于网格世界
-2. **固定反思频率**: 无法根据任务复杂度调整
-3. **参数敏感性**: 部分参数需要手动调优
+### 6.1 Current Limitations
+1. **Discrete State Space**: Only applicable to grid worlds
+2. **Fixed Reflection Frequency**: Cannot adjust based on task complexity
+3. **Parameter Sensitivity**: Some parameters require manual tuning
 
-### 6.2 改进方向
-1. **连续状态空间**: 扩展到连续环境
-2. **自适应反思**: 根据任务复杂度调整反思频率
-3. **自动调参**: 实现超参数的自动优化
+### 6.2 Improvement Directions
+1. **Continuous State Space**: Extend to continuous environments
+2. **Adaptive Reflection**: Adjust reflection frequency based on task complexity
+3. **Auto-tuning**: Implement automatic hyperparameter optimization
 
-## 7. 结论
+## 7. Conclusions
 
-### 7.1 主要贡献
-1. **证明了反思机制的有效性**: 在动态环境中显著提升性能
-2. **验证了双记忆系统的优势**: 平衡短期适应和长期稳定
-3. **展示了环境适应能力**: 能够快速检测和适应环境变化
+### 7.1 Main Contributions
+1. **Proved effectiveness of reflection mechanism**: Significantly improves performance in dynamic environments
+2. **Verified advantages of dual memory system**: Balances short-term adaptation and long-term stability
+3. **Demonstrated environment adaptation capability**: Can quickly detect and adapt to environment changes
 
-### 7.2 实际意义
-1. **机器人导航**: 适用于变化频繁的导航任务
-2. **游戏AI**: 提升AI在动态游戏中的表现
-3. **自动驾驶**: 适应复杂的交通环境变化
+### 7.2 Practical Significance
+1. **Robot Navigation**: Applicable to navigation tasks with frequent changes
+2. **Game AI**: Improve AI performance in dynamic games
+3. **Autonomous Driving**: Adapt to complex traffic environment changes
 
-### 7.3 理论价值
-1. **元学习**: 为元学习研究提供新思路
-2. **认知科学**: 模拟人类反思认知过程
-3. **强化学习**: 扩展强化学习的应用范围
+### 7.3 Theoretical Value
+1. **Meta-Learning**: Provides new insights for meta-learning research
+2. **Cognitive Science**: Simulates human reflective cognitive processes
+3. **Reinforcement Learning**: Extends reinforcement learning application scope
 
-## 8. 未来工作
+## 8. Future Work
 
-### 8.1 短期目标
-- 扩展到更大的迷宫环境
-- 实现多智能体协作
-- 优化参数调优过程
+### 8.1 Short-term Goals
+- Extend to larger maze environments
+- Implement multi-agent collaboration
+- Optimize parameter tuning process
 
-### 8.2 长期目标
-- 扩展到连续动作空间
-- 实现多任务学习
-- 应用到真实世界场景
+### 8.2 Long-term Goals
+- Extend to continuous action spaces
+- Implement multi-task learning
+- Apply to real-world scenarios

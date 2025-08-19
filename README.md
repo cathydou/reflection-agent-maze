@@ -1,142 +1,142 @@
-# 🧠 Reflection Agent: 动态环境中的智能反思机制
+# 🧠 Reflection Agent: Intelligent Reflection Mechanism in Dynamic Environments
 
-## 📖 项目简介
+## 📖 Project Introduction
 
-本项目实现了一个具有反思能力的智能体（Reflection Agent），能够在动态变化的迷宫环境中自主学习、适应和优化策略。通过引入反思机制，智能体能够显著提升在复杂环境中的表现。
+This project implements a reflective agent (Reflection Agent) that can autonomously learn, adapt, and optimize strategies in dynamically changing maze environments. By introducing reflection mechanisms, the agent significantly improves performance in complex environments.
 
-## 🎯 核心特性
+## 🎯 Core Features
 
-### 🔄 反思机制
-- **实时性能评估**：每5步进行一次自我反思
-- **动态策略调整**：根据表现自动调整探索率和学习率
-- **环境变化检测**：智能识别环境变化并快速适应
+### 🔄 Reflection Mechanism
+- **Real-time Performance Evaluation**: Self-reflection every 5 steps
+- **Dynamic Strategy Adjustment**: Automatically adjust exploration rate and learning rate based on performance
+- **Environment Change Detection**: Intelligently identify environment changes and adapt quickly
 
-### 🧠 双记忆系统
-- **短期记忆**：快速适应环境变化
-- **长期记忆**：保存稳定的通用策略
-- **智能平衡**：根据环境稳定性动态调整记忆权重
+### 🧠 Dual Memory System
+- **Short-term Memory**: Quickly adapt to environment changes
+- **Long-term Memory**: Preserve stable general strategies
+- **Intelligent Balance**: Dynamically adjust memory weights based on environment stability
 
-### 🎮 智能决策
-- **方向优先**：优先选择朝向目标的方向
-- **墙壁记忆**：记住并避开已知的墙壁
-- **UCB算法**：平衡探索与利用的最优决策
+### 🎮 Intelligent Decision Making
+- **Direction Priority**: Prioritize directions toward the goal
+- **Wall Memory**: Remember and avoid known walls
+- **UCB Algorithm**: Optimal decision making balancing exploration and exploitation
 
-## 📊 实验结果
+## 📊 Experimental Results
 
-在100个episodes的动态迷宫实验中：
+In a 100-episode dynamic maze experiment:
 
-| 指标 | 基线智能体 | 反思智能体 | 提升幅度 |
-|------|------------|------------|----------|
-| **成功率** | 2.0% | **40.0%** | **+38.0%** |
-| **平均奖励** | -97.17 | **30.52** | **+131.4%** |
-| **总成功次数** | 2次 | **40次** | **20倍** |
+| Metric | Baseline Agent | Reflection Agent | Improvement |
+|--------|----------------|------------------|-------------|
+| **Success Rate** | 2.0% | **40.0%** | **+38.0%** |
+| **Average Reward** | -97.17 | **30.52** | **+131.4%** |
+| **Total Successes** | 2 times | **40 times** | **20x** |
 
-## 🏗️ 项目结构
+## 🏗️ Project Structure
 
 ```
 reflection-agent/
-├── README.md                 # 项目说明文档
-├── requirements.txt          # 依赖包列表
-├── main_experiment2.py      # 主实验程序
-├── reflection_agent.py      # 反思智能体实现
-├── baseline_agent.py        # 基线智能体实现
-├── dynamic_maze_env.py      # 动态迷宫环境
-├── maze_visualization.py    # 可视化界面
-├── results/                 # 实验结果
-│   ├── performance_plots/   # 性能图表
-│   └── training_logs/       # 训练日志
-└── docs/                    # 文档
-    ├── methodology.md       # 方法论
-    └── results_analysis.md  # 结果分析
+├── README.md                 # Project documentation
+├── requirements.txt          # Dependency list
+├── main_experiment2.py      # Main experiment program
+├── reflection_agent.py      # Reflection agent implementation
+├── baseline_agent.py        # Baseline agent implementation
+├── dynamic_maze_env.py      # Dynamic maze environment
+├── maze_visualization.py    # Visualization interface
+├── results/                 # Experimental results
+│   ├── performance_plots/   # Performance charts
+│   └── training_logs/       # Training logs
+└── docs/                    # Documentation
+    ├── methodology.md       # Methodology
+    └── results_analysis.md  # Results analysis
 ```
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Requirements
 - Python 3.8+
 - Pygame
 - NumPy
 - Matplotlib
 
-### 安装依赖
+### Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 运行实验
+### Run Experiments
 ```bash
-# 运行完整的对比实验
+# Run complete comparison experiment
 python main_experiment2.py
 
-# 运行可视化演示
+# Run visualization demo
 python maze_visualization.py
 ```
 
-## 🔬 技术细节
+## 🔬 Technical Details
 
-### 反思机制参数
-- **反思频率**: 每5步
-- **置信度阈值**: 0.25
-- **适应阈值**: 0.45
-- **环境稳定性阈值**: 0.6
+### Reflection Mechanism Parameters
+- **Reflection Frequency**: Every 5 steps
+- **Confidence Threshold**: 0.25
+- **Adaptation Threshold**: 0.45
+- **Environment Stability Threshold**: 0.6
 
-### 学习参数
-- **学习率**: 0.5 (动态调整)
-- **折扣因子**: 0.9
-- **探索率**: 0.9 → 0.3 (动态衰减)
-- **经验缓冲区大小**: 1000
+### Learning Parameters
+- **Learning Rate**: 0.5 (dynamic adjustment)
+- **Discount Factor**: 0.9
+- **Exploration Rate**: 0.9 → 0.3 (dynamic decay)
+- **Experience Buffer Size**: 1000
 
-## 📈 性能分析
+## 📈 Performance Analysis
 
-### 环境变化检测
-智能体能够实时检测迷宫结构的变化，包括：
-- 墙壁位置变化
-- 奖励函数变化
-- 目标位置变化
+### Environment Change Detection
+The agent can detect real-time changes in maze structure, including:
+- Wall position changes
+- Reward function changes
+- Goal position changes
 
-### 策略适应
-检测到环境变化时，智能体会：
-1. 增加探索率
-2. 清除部分过时记忆
-3. 调整学习参数
-4. 更频繁地反思
+### Strategy Adaptation
+When environment changes are detected, the agent will:
+1. Increase exploration rate
+2. Clear partial outdated memories
+3. Adjust learning parameters
+4. Reflect more frequently
 
-## 🎨 可视化
+## 🎨 Visualization
 
-项目包含完整的可视化界面，展示：
-- 迷宫布局
-- 智能体移动轨迹
-- 实时性能指标
-- 环境变化检测
+The project includes a complete visualization interface showing:
+- Maze layout
+- Agent movement trajectories
+- Real-time performance metrics
+- Environment change detection
 
-## 📚 相关研究
+## 📚 Related Research
 
-本项目探索了以下AI领域的前沿概念：
-- **元学习** (Meta-Learning)
-- **反思学习** (Reflective Learning)
-- **动态环境适应** (Dynamic Environment Adaptation)
-- **多记忆系统** (Multi-Memory Systems)
+This project explores cutting-edge concepts in AI:
+- **Meta-Learning**
+- **Reflective Learning**
+- **Dynamic Environment Adaptation**
+- **Multi-Memory Systems**
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交Issue和Pull Request！请确保：
-1. 代码符合PEP 8规范
-2. 添加适当的注释和文档
-3. 测试新功能
-4. 更新相关文档
+Welcome to submit Issues and Pull Requests! Please ensure:
+1. Code follows PEP 8 standards
+2. Add appropriate comments and documentation
+3. Test new features
+4. Update related documentation
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## 👨‍💻 作者
+## 👨‍💻 Author
 
-**Zhou Yi** - 反思智能体研究
+**Zhou Yi** - Reflection Agent Research
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-感谢所有为这个项目做出贡献的研究者和开发者。
+Thanks to all researchers and developers who contributed to this project.
 
 ---
 
-⭐ **如果这个项目对你有帮助，请给它一个星标！**
+⭐ **If this project helps you, please give it a star!**
