@@ -131,7 +131,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Zhou Yi** - Reflection Agent Research
+**Zhou Chenyu** - Reflection Agent Research
 
 ## 🙏 Acknowledgments
 
