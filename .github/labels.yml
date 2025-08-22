@@ -1,0 +1,86 @@
+# GitHub Labels Configuration
+# This file defines the labels used in the repository
+
+- name: "good first issue"
+  color: "0e8a16"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "research"
+  color: "8b5cf6"
+  description: "Research-related issues and improvements"
+
+- name: "performance"
+  color: "ff6b6b"
+  description: "Performance improvements and optimizations"
+
+- name: "testing"
+  color: "00d084"
+  description: "Testing and test-related improvements"
+
+- name: "visualization"
+  color: "ffa500"
+  description: "UI/UX and visualization improvements"
+
+- name: "algorithm"
+  color: "6f42c1"
+  description: "Algorithm improvements and new implementations"
+
+- name: "memory-system"
+  color: "1d76db"
+  description: "Memory system and optimization"
+
+- name: "environment"
+  color: "fbca04"
+  description: "Environment and simulation improvements"
+
+- name: "meta-learning"
+  color: "e4e669"
+  description: "Meta-learning and reflection mechanisms"
+
+- name: "priority-high"
+  color: "d93f0b"
+  description: "High priority issues"
+
+- name: "priority-medium"
+  color: "fbca04"
+  description: "Medium priority issues"
+
+- name: "priority-low"
+  color: "0e8a16"
+  description: "Low priority issues"
+
+- name: "beginner"
+  color: "0e8a16"
+  description: "Suitable for beginners"
+
+- name: "intermediate"
+  color: "fbca04"
+  description: "Suitable for intermediate developers"
+
+- name: "advanced"
+  color: "d93f0b"
+  description: "Suitable for advanced developers"
+
+- name: "co-authorship"
+  color: "8b5cf6"
+  description: "Opportunity for co-authorship on papers"
+
+- name: "mentorship"
+  color: "00d084"
+  description: "Mentorship available for this issue"
